@@ -2,6 +2,10 @@
 name = "rs-split-table"
 version = "0.1.0"
 edition = "2021"
+description = "Create tables by splitting a table"
+license = "Apache-2.0"
+documentation = "https://docs.rs/crate/rs-split-table/latest"
+repository = "https://github.com/takanoriyanagitani/rs-split-table"
 
 [dependencies.futures]
 version = "0.3.30"
