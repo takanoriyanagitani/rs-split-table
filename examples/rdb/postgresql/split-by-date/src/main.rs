@@ -6,8 +6,10 @@ use tokio_postgres::{Config, NoTls};
 
 use deadpool_postgres::{Manager, ManagerConfig, Pool, RecyclingMethod};
 
+use prefix::number::prefix_checker32u;
+use rs_split_table::rdb::simple::tabchk::prefix;
+
 use split_by_date::row2tab::RowToName;
-use split_by_date::tabchk::table_checker_prefix_integer_new;
 
 use split_by_date::create::creator_new;
 use split_by_date::insert::saver_new;
@@ -22,7 +24,7 @@ async fn sub() -> Result<(), Status> {
     };
 
     // TableChecker
-    let tabchk = table_checker_prefix_integer_new(TABLE_PREFIX.into());
+    let tabchk = prefix_checker32u(TABLE_PREFIX.into());
 
     let mut conf: Config = Config::new();
     conf.port(5432);
@@ -51,7 +53,6 @@ async fn sub() -> Result<(), Status> {
     // DataSource
     let source = split_by_date::source::DummySource {
         rows: vec![
-
             Row {
                 id: "cafef00d-dead-beaf-face-864299792458".into(),
                 date: time::macros::date!(2024 - 07 - 09),
@@ -62,7 +63,6 @@ async fn sub() -> Result<(), Status> {
                 date: time::macros::date!(2024 - 07 - 09),
                 msg: "helo1".into(),
             },
-
             Row {
                 id: "cafef00d-dead-beaf-face-864299792458".into(),
                 date: time::macros::date!(2024 - 07 - 10),
@@ -73,7 +73,6 @@ async fn sub() -> Result<(), Status> {
                 date: time::macros::date!(2024 - 07 - 10),
                 msg: "helo1".into(),
             },
-
         ],
     };
 
