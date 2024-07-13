@@ -1,5 +1,6 @@
 use tonic::Status;
 
+/// Checks the table name to prevent unexpected sql(e.g, SQL injection).
 pub trait TableChecker: Sync + Send + 'static {
     fn check(&self, table_name: &str) -> Result<(), Status>;
     fn to_checked(&self, table_name: String) -> Result<String, Status> {
