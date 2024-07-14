@@ -23,6 +23,7 @@ where
     }
 }
 
+/// Creates a [`TableChecker`] from the specified function.
 pub fn fn2checker<F>(checker: F) -> impl TableChecker + Clone
 where
     F: Fn(&str) -> Result<(), Status> + Send + Sync + Clone + 'static,
