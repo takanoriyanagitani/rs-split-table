@@ -31,6 +31,7 @@ where
     CheckFn { checker }
 }
 
+/// Creates a [`TableChecker`] from the specified functions(AND).
 pub fn double_checker_new<A, B>(chk1: A, chk2: B) -> impl TableChecker
 where
     A: Fn(&str) -> Result<(), Status> + Send + Sync + 'static,
