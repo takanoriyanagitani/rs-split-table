@@ -35,6 +35,7 @@ where
     }
 }
 
+/// Creates a new [`DataTarget`] from trait implementations.
 pub fn saver_new<C, I, T, R>(
     create: C,
     insert: I,
