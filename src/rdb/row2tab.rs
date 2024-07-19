@@ -1,3 +1,4 @@
+//! Traits for creating table names.
 use tonic::Status;
 
 /// Tries to generate a table name from a row.
