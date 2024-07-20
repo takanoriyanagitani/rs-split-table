@@ -1,3 +1,5 @@
+//! Functions to create a [`DataTarget`].
+
 use tonic::Status;
 
 use crate::rdb::create::CreateTable;
