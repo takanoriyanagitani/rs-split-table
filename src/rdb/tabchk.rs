@@ -1,3 +1,5 @@
+//! Functions to create a [`TableChecker`].
+
 use tonic::Status;
 
 /// Checks the table name to prevent unexpected sql(e.g, SQL injection).
