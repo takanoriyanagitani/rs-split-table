@@ -1,3 +1,4 @@
+//! Functions to create [`TableChecker`]s(ok pattern: prefix + number).
 use tonic::Status;
 
 use crate::rdb::tabchk::{double_checker_new, TableChecker};
