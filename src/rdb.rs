@@ -1,3 +1,5 @@
+//! Modules for rdb.
+
 pub mod create;
 pub mod insert;
 
