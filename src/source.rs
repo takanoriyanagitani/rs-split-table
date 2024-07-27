@@ -1,3 +1,5 @@
+//! Data source traits.
+
 use futures::Stream;
 
 use tonic::Status;
