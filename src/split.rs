@@ -1,3 +1,5 @@
+//! Functions to copy the rows from the source to the target.
+
 use futures::TryStreamExt;
 
 use tonic::Status;
