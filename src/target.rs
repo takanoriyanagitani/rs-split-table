@@ -1,3 +1,5 @@
+//! Traits of data savers.
+
 use tonic::Status;
 
 /// Tries to save a row.
