@@ -34,7 +34,7 @@ where
     R: Send + Sync + 'static,
 {
     RowToTabNameFn {
-        orow: PhantomData::default(),
+        orow: PhantomData,
         row2tab,
     }
 }
