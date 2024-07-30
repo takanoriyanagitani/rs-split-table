@@ -1,9 +1,8 @@
-use tonic::Status;
-
 use time::Date;
 use time::Month;
 
 use rs_split_table::rdb::row2tab::RowToTableName;
+use rs_split_table::rdb::simple::row2tab::row2num::row2tname_row2num_new32i;
 
 pub struct RowToName {
     pub prefix: String,
@@ -23,18 +22,21 @@ impl RowToName {
         ymd
     }
 
-    pub fn date2string(d: Date) -> String {
-        let i: i32 = Self::date2integer(d);
-        format!("{i:08}")
-    }
-}
-
-impl RowToTableName for RowToName {
-    type Row = crate::row::Row;
-    fn row2table(&self, row: &Self::Row) -> Result<String, Status> {
+    pub fn row2num(row: &crate::row::Row) -> i32 {
         let dt: Date = row.date;
+        Self::date2integer(dt)
+    }
+
+    pub fn num2tab(&self, num: i32) -> String {
         let prefix: &str = self.prefix.as_str();
-        let dts: String = Self::date2string(dt);
-        Ok(format!("{prefix}{dts}"))
+        format!("{prefix}{num:08}")
+    }
+
+    pub fn into_num2tab(self) -> impl Fn(i32) -> String {
+        move |num: i32| self.num2tab(num)
+    }
+
+    pub fn into_row2tab(self) -> impl RowToTableName<Row = crate::row::Row> {
+        row2tname_row2num_new32i(Self::row2num, self.into_num2tab())
     }
 }

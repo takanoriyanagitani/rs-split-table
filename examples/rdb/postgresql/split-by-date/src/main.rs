@@ -18,10 +18,11 @@ use split_by_date::row::Row;
 const TABLE_PREFIX: &str = "testtab";
 
 async fn sub() -> Result<(), Status> {
-    // RowToTableName
     let row2tab = RowToName {
         prefix: TABLE_PREFIX.into(),
     };
+    // RowToTableName
+    let row2tab = row2tab.into_row2tab();
 
     // TableChecker
     let tabchk = prefix_checker32u(TABLE_PREFIX.into());
