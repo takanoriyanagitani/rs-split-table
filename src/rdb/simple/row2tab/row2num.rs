@@ -4,6 +4,7 @@ use super::row2cp::row2tname_row2cp_new;
 
 macro_rules! row2tname_row2num {
     ($numtyp: ty, $fname: ident) => {
+        /// Creates a [`RowToTableName`] which uses a number to create the name.
         pub fn $fname<R, F, S>(row2num: F, num2tab: S) -> impl RowToTableName<Row = R>
         where
             R: Send + Sync + 'static,
