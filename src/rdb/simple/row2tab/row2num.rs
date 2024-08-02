@@ -1,3 +1,5 @@
+//! Functions to create [`RowToTableName`].
+
 use crate::rdb::row2tab::RowToTableName;
 
 use super::row2cp::row2tname_row2cp_new;
