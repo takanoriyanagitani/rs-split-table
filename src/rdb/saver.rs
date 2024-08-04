@@ -38,6 +38,12 @@ where
 }
 
 /// Creates a new [`DataTarget`] from trait implementations.
+///
+/// ## Arguments
+/// - create: The [`CreateTable`] which creates a table using the checked name.
+/// - insert: The [`Insert`] which inserts a row into the checked table.
+/// - tabchk: The [`TableChecker`] which checks the name of the table.
+/// - row2nm: The [`RowToTableName`] which creates the table name by the row.
 pub fn saver_new<C, I, T, R>(
     create: C,
     insert: I,
