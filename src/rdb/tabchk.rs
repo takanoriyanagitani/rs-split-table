@@ -4,7 +4,10 @@ use tonic::Status;
 
 /// Checks the table name to prevent unexpected sql(e.g, SQL injection).
 pub trait TableChecker: Sync + Send + 'static {
+    /// Checks the name of the table.
     fn check(&self, table_name: &str) -> Result<(), Status>;
+
+    /// Converts the table name to the checked name if it is valid.
     fn to_checked(&self, table_name: String) -> Result<String, Status> {
         self.check(table_name.as_str())?;
         Ok(table_name)
