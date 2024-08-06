@@ -28,6 +28,7 @@ where
     }
 }
 
+/// Creates [`RowToTableName`] from the function.
 pub fn row2tname_new<R, F>(row2tab: F) -> impl RowToTableName<Row = R>
 where
     F: Fn(&R) -> Result<String, Status> + Send + Sync + 'static,
