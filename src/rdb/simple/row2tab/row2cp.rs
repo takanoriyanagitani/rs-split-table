@@ -1,3 +1,5 @@
+//! Functions to create [`RowToTableName`] using copiable types.
+
 use crate::rdb::row2tab::row2tname_new;
 use crate::rdb::row2tab::RowToTableName;
 
